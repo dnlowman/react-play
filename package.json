@@ -1,0 +1,20 @@
+{
+  "name": "react-play",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.9.3",
+    "gulp": "^3.9.0"
+  },
+  "dependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.24",
+    "bower": "^1.5.2"
+  }
+}
