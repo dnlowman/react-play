@@ -1,10 +1,6 @@
 'use strict';
 
-var data = [
-    { 'name': 'Daniel' },
-    { 'name': 'Alvaro' },
-    { 'name': 'Eduardo' }
-];
+import React from 'react';
 
 class TimeDisplay extends React.Component {
     constructor(props) {
@@ -32,31 +28,4 @@ class TimeDisplay extends React.Component {
     }
 }
 
-class NameDisplay extends React.Component {
-    render() {
-        return (
-            <h1>Hi there {this.props.name}</h1>
-        );
-    }
-}
-
-class WelcomeMessage extends React.Component {
-    render() {
-        var nodes = this.props.data.map(function(node) {
-            return (
-                <div>
-                    <NameDisplay name={node.name} /><br />
-                    <TimeDisplay date={new Date()} paused={false} />
-                </div>
-            );
-        });
-
-        return (
-            <div>
-                {nodes}
-            </div>
-        );
-    }
-}
-
-React.render(<WelcomeMessage data={data} />, document.getElementById('app'))
+export default TimeDisplay;
