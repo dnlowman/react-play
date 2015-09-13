@@ -2,6 +2,7 @@
 
 import React from 'react';
 import WelcomeMessage from '../welcome-message/welcome-message';
+import AgeCounter from '../age-counter/age-counter';
 
 var data = [
     { 'name': 'Daniel' },
@@ -12,7 +13,10 @@ var data = [
 class App extends React.Component {
     render() {
         return (
-            <WelcomeMessage data={data} />
+            <div>
+                <AgeCounter name={'Daniel'} daysOld={0} />
+                <WelcomeMessage data={data} />
+            </div>
         );
     }
 }
