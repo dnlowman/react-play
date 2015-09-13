@@ -84,7 +84,15 @@
 	
 	var _ageCounterAgeCounter2 = _interopRequireDefault(_ageCounterAgeCounter);
 	
+	var _mediaSearchMediaSearch = __webpack_require__(7);
+	
+	var _mediaSearchMediaSearch2 = _interopRequireDefault(_mediaSearchMediaSearch);
+	
+	// this would come from a store...
 	var data = [{ 'name': 'Daniel' }, { 'name': 'Alvaro' }, { 'name': 'Eduardo' }];
+	
+	// this would come from a store...
+	var media = [{ 'title': 'Game of Codes' }, { 'title': 'Codeface' }, { 'title': 'Harry Coder and the order of the Compiler' }, { 'title': 'Codefellas' }, { 'title': 'The Codefather' }];
 	
 	var App = (function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -101,6 +109,7 @@
 	            return _react2['default'].createElement(
 	                'div',
 	                null,
+	                _react2['default'].createElement(_mediaSearchMediaSearch2['default'], { searchText: 'Code', media: media }),
 	                _react2['default'].createElement(_ageCounterAgeCounter2['default'], { name: 'Daniel', daysOld: 0 }),
 	                _react2['default'].createElement(_welcomeMessageWelcomeMessage2['default'], { data: data })
 	            );
@@ -6097,6 +6106,242 @@
 	})(_react2['default'].Component);
 	
 	exports['default'] = AgeCounter;
+	module.exports = exports['default'];
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _mediaSearchBarMediaSearchBar = __webpack_require__(8);
+	
+	var _mediaSearchBarMediaSearchBar2 = _interopRequireDefault(_mediaSearchBarMediaSearchBar);
+	
+	var _mediaSearchElementMediaSearchElement = __webpack_require__(9);
+	
+	var _mediaSearchElementMediaSearchElement2 = _interopRequireDefault(_mediaSearchElementMediaSearchElement);
+	
+	var MediaSearch = (function (_React$Component) {
+	    _inherits(MediaSearch, _React$Component);
+	
+	    function MediaSearch(props) {
+	        _classCallCheck(this, MediaSearch);
+	
+	        _get(Object.getPrototypeOf(MediaSearch.prototype), 'constructor', this).call(this, props);
+	        this.state = { searchText: this.props.searchText };
+	    }
+	
+	    _createClass(MediaSearch, [{
+	        key: 'onSearchBarInput',
+	        value: function onSearchBarInput(newText) {
+	            this.setState({
+	                searchText: newText
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var mediaElements = this.props.media.filter(function (media) {
+	                return media.title.toLowerCase().indexOf(this.state.searchText.toLowerCase()) > -1;
+	            }, this).map(function (media) {
+	                return _react2['default'].createElement(
+	                    'div',
+	                    null,
+	                    'lel',
+	                    _react2['default'].createElement(_mediaSearchElementMediaSearchElement2['default'], { key: media.title, title: media.title }),
+	                    _react2['default'].createElement('br', null)
+	                );
+	            });
+	
+	            if (mediaElements.length === 0) {
+	                mediaElements.push(_react2['default'].createElement(
+	                    'div',
+	                    null,
+	                    'No results found...'
+	                ));
+	            }
+	
+	            return _react2['default'].createElement(
+	                'div',
+	                { className: 'ui one column centered grid' },
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'ui segment' },
+	                    _react2['default'].createElement(
+	                        'div',
+	                        { className: 'ui sixteen wide center aligned column' },
+	                        'The Most Epic Media Content Search Component Ever! test'
+	                    ),
+	                    _react2['default'].createElement(_mediaSearchBarMediaSearchBar2['default'], { onSearchBarInput: this.onSearchBarInput.bind(this), placeholder: this.state.searchText }),
+	                    mediaElements
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return MediaSearch;
+	})(_react2['default'].Component);
+	
+	exports['default'] = MediaSearch;
+	module.exports = exports['default'];
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var MediaSearchBar = (function (_React$Component) {
+	    _inherits(MediaSearchBar, _React$Component);
+	
+	    function MediaSearchBar(props) {
+	        _classCallCheck(this, MediaSearchBar);
+	
+	        _get(Object.getPrototypeOf(MediaSearchBar.prototype), 'constructor', this).call(this, props);
+	    }
+	
+	    _createClass(MediaSearchBar, [{
+	        key: 'handleChange',
+	        value: function handleChange() {
+	            this.props.onSearchBarInput(this.refs.searchInput.getDOMNode().value);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2['default'].createElement(
+	                'div',
+	                null,
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'ui four wide center aligned column' },
+	                    _react2['default'].createElement(
+	                        'form',
+	                        { className: 'ui form' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'field' },
+	                            _react2['default'].createElement(
+	                                'label',
+	                                null,
+	                                'Enter le text below to see the dynamicness! :D'
+	                            ),
+	                            _react2['default'].createElement('input', { type: 'text', ref: 'searchInput', name: 'first-name', placeholder: this.props.placeholder, onChange: this.handleChange.bind(this) })
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement('hr', null)
+	            );
+	        }
+	    }]);
+	
+	    return MediaSearchBar;
+	})(_react2['default'].Component);
+	
+	exports['default'] = MediaSearchBar;
+	module.exports = exports['default'];
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var MediaSearchElement = (function (_React$Component) {
+	    _inherits(MediaSearchElement, _React$Component);
+	
+	    function MediaSearchElement(props) {
+	        _classCallCheck(this, MediaSearchElement);
+	
+	        _get(Object.getPrototypeOf(MediaSearchElement.prototype), 'constructor', this).call(this, props);
+	    }
+	
+	    _createClass(MediaSearchElement, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2['default'].createElement(
+	                'div',
+	                { className: 'ui four wide center aligned column' },
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'ui card' },
+	                    _react2['default'].createElement(
+	                        'div',
+	                        { className: 'content' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'header' },
+	                            this.props.title
+	                        ),
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'description' },
+	                            _react2['default'].createElement('p', null)
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return MediaSearchElement;
+	})(_react2['default'].Component);
+	
+	exports['default'] = MediaSearchElement;
 	module.exports = exports['default'];
 
 /***/ }
